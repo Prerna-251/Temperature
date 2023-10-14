@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body background="temp-convert image.png">
+    <div class="title">
+        <h1>Temperature Converter</h1>
+        <span class="temperature icon"></span>
+        <div id="selector">
+            <label id="text" for="typ">
+                <h2>Convert the Temperature into: </h2>
+            </label>
+        </div>
+        <div class="box">
+            <select name="sel" id="typ">
+                <option style="display: none;"></option>
+                <option value="celsius" id="celsius">celsius to fahrenheit</option>
+                <option value="fahrenheit" id="fahrenheit"> fahrenheit to celsius</option>
+            </select>
+        </div>
+        <div id="main">
+            <div class="left"><input class="num" id="num1" type="number"></div>
+            <div id="equal">=</div>
+            <div class="right"><input class="num" id="answer" type="number"></div>
+        </div>
+        <input type="button" onClick="calc();" value="Convert" id="btn">
+    </div>
+</body>
+
+</html>
+
+<!-- JavaScript code -->
+
+<script>
+    function calc() {
+        var num = parseInt(document.getElementById('num1').value);
+        var unit = document.getElementById('typ').value;
+        if (unit == "celsius") {
+            var calculate = (num * 1.8 + 32).toFixed(3);
+        }
+        else {
+            var calculate = ((num - 32) / 1.8).toFixed(3);
+        }
+        document.getElementById('answer').value = calculate;
+    }
+</script>
